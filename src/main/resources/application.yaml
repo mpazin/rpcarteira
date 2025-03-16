@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: rpcarteira
+
+
+
+---
+
+spring:
+  config:
+   activate:
+     on-profile: local
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/rpbank
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: teste
+    hikari:
+      connection-timeout: 20000
+      minimum-idle: 10
+      maximum-poll-size: 15
+      idle-timeout: 10000
+
+
+  jpa:
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+#org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy:
+
+server:
+  error:
+    include-stacktrace: on_param
+
+serviceRPCadastro: http://localhost:8090/api/newAccount
+serviceWalletBalance: http://localhost:8090/api/walletBalance
+serviceWalletDeposit: http://localhost:8090/api/walletDeposit
+serviceWalletWithdrawal: http://localhost:8090/api/walletWithdrawal
+serviceWalletTransfer: http://localhost:8090/api/walletTransfer
+serviceBalanceHistory: http://localhost:8090/api/balanceHistory
