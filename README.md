@@ -1,49 +1,52 @@
 # MS 1 - rpcarteira -
-Este é o segundo microserviço de teste e será consumido pelo primeiro ms. RP testing with Spring Boot Java microservice and entities with Mysql database.
-
+This is a sample test of a first microservice (RPCARTEIRA) that will consume a second microservice via rest json. Access to the database happens in the second microservice (RPCADASTRO). This example was made with Spring Boot Java.
 ## Spring Boot - Maven
-Esse projeto ilustra a estrutura gerada em Spring Initializr, através da utilização do arquétipo  do Maven utilizando o JDK17.
+This project illustrates the structure generated in Spring Initializr, through the use of the Maven archetype and JDK17.
+
 
 ## Getting started
 
-Para executar o projeto, será necessário instalar os seguintes programas:
+To run the project, you will need to install the following programs:
+- [JDK 17: Required to run the Java project](https://download.oracle.com/java/17/archive/jdk-17_windows-x64_bin.exe)
+- [Maven 3.9.6: Required to build the Java project](https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.6/apache-maven-3.9.6-bin.zip)
+- Intellij or Eclipse: For project development.
 
-- [JDK 17: Necessário para executar o projeto Java](https://download.oracle.com/java/17/archive/jdk-17_windows-x64_bin.exe)
-- [Maven 3.9.6: Necessário para realizar o build do projeto Java](https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.6/apache-maven-3.9.6-bin.zip)
-- Intellij ou Eclipse: Para desenvolvimento do projeto
 
+## Development
 
-## Desenvolvimento
-
-Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num diretório de sua preferência:
-
+To start development, you need to clone the GitHub project into a directory of your choice:
 ```shell
-cd "diretorio de sua preferencia"
-git clone https://github.com/mpazin/rpcadastro
+cd "directory of your preference"
+git clone https://github.com/mpazin/rpcarteira
 ```
 
 
 ## Build
 
-Para construir o projeto com o Maven, executar os comando abaixo:
-
+To build the project with Maven, run the commands below:
 ```shell
 mvn clean install
 ```
 
-O comando irá baixar todas as dependências do projeto e criar um diretório *target* com os artefatos construídos, que incluem o arquivo jar do projeto. O Maven exibirá essas informação no console.
-
+The command will download all project dependencies and create a *target* directory with the built artifacts, which include the project jar file. Maven will display this information in the console.
 
 ## Features
 
-O projeto pode ser usado como modelo para iniciar o desenvolvimento de um projeto Java usando o Maven. Ele também demonstra de forma prática como configurar o Maven em um projeto Java.
-
+This project is a sample of a service for orchestrating operations in a financial portfolio. Each selected operation communicates via REST with a second microservice, rpcadastro, which receives the data, executes the business rules, accesses the database and returns the information to this microservice, rpcarteira.
+#### Available operations:
+- Account and portfolio registration;
+- Account balance query;
+- Deposit of Amount into the Wallet;
+- Withdrawal of Amount from Wallet;
+- Transfer of Values between Wallets;
+- Querying balance history by date;
+- Custom exception messages.
 
 ## Configuration
 
 To run the project, you need to use Intellij, so that it identifies the dependencies required for execution in the *Maven .m2 repository*. Once the project is imported, a *.classpath* file
 will be created that will inform which is the main class for execution. The project must run locally and add the environment variable *SPRING_PROFILES_ACTIVE=local*. This microservice is 
-already configured to run locally with *port 8090* in the *application.yaml* file.
+already configured to run locally with *port 8090* in the *application.yaml* file. Calls to operations can be tested by postman - https://www.postman.com/downloads/
 
 ## Contact
 - LinkedIn: https://www.linkedin.com/in/marcio-pazin-ab178523/
