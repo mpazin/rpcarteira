@@ -1,0 +1,57 @@
+*** Para teste de nova conta, conselhavel mudar o nome e gerar um novo cpf no 4devs**
+Pode utilizar também a collection que esta na pasta
+
+
+* NOVA CONTA E CARTEIRA *
+Post
+http://localhost:8080/api/wallet/createAccount
+{
+    "nmPessoa": "obi wan kenobi",
+    "cpfPessoa": "48928969000",
+    "rgPessoa": "4545454",
+    "tpConta": "C"
+}
+
+
+* CONSULTA SALDO *
+GET
+http://localhost:8080/api/wallet/getBalance?nuConta=48928969000
+
+
+* DEPOSITO *
+Post
+http://localhost:8080/api/wallet/deposit
+{
+
+    "valor": 150.50,
+    "nmDestinatario": "Fred Jones",
+    "nuContaDestinatario": "251203164359",
+    "cpfCnpjDestinatario": "85258988058",
+    "nuAgenciaDestinatario": 12,
+    "nuBancoDestinatario": 888
+}
+
+
+* SAQUE *
+Post
+http://localhost:8080/api/wallet/withdrawal
+{
+    "nuConta": "251203164359",
+    "valor": 4000
+}
+
+
+* TRANSFERÊNCIA *
+PUT
+http://localhost:8080/api/wallet/transfer
+{
+    "valor": 300,
+    "nuContaRemetente": "251203164359",
+    "nuContaDestinatario": "251203010718"
+}
+
+
+
+* CONSULTA HISTORICO DE SALDO *
+GET
+http://localhost:8080/api/wallet/getBalanceHistory?nuConta=251203164359&dtInicio=2025-03-14&dtFim=2025-03-15

@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "4f2bd5c5-ad66-45cf-8620-254ca82a1907",
+		"name": "RP CARTEIRA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17726803"
+	},
+	"item": [
+		{
+			"name": "Cria nova conta e carteira",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nmPessoa\": \"Obi Wan Kenobi\",\r\n    \"cpfPessoa\": \"48928969000\",\r\n    \"rgPessoa\": \"4545454\",\r\n    \"tpConta\": \"C\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/createAccount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retorna saldo",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/getBalance?nuConta=48928969000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"getBalance"
+					],
+					"query": [
+						{
+							"key": "nuConta",
+							"value": "48928969000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposito",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"valor\": 150.50,\r\n    \"nmDestinatario\": \"Obi Wan Kenobi\",\r\n    \"nuContaDestinatario\": \"coloque a conta que foi gerada na criacao\",\r\n    \"cpfCnpjDestinatario\": \"48928969000\",\r\n    \"nuAgenciaDestinatario\": 12,\r\n    \"nuBancoDestinatario\": 888\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/deposit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Saque",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nuConta\": \"coloque a conta que foi gerada na criacao\",\r\n    \"valor\": 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/withdrawal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"withdrawal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transferência",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\": 300,\r\n    \"nuContaRemetente\": \"coloque a conta que foi gerada na criacao\",\r\n    \"nuContaDestinatario\": \"pegue uma conta ja gerada na base\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta Historico de Saldo",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/getBalanceHistory?nuConta=251203164359&dtInicio=2025-03-14&dtFim=2025-03-15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"getBalanceHistory"
+					],
+					"query": [
+						{
+							"key": "nuConta",
+							"value": "251203164359"
+						},
+						{
+							"key": "dtInicio",
+							"value": "2025-03-14"
+						},
+						{
+							"key": "dtFim",
+							"value": "2025-03-15"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

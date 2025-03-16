@@ -34,11 +34,11 @@ The command will download all project dependencies and create a *target* directo
 
 This project is a sample of a service for orchestrating operations in a financial portfolio. Each selected operation communicates via REST with a second microservice, rpcadastro, which receives the data, executes the business rules, accesses the database and returns the information to this microservice, rpcarteira.
 #### Available operations:
-- Account and portfolio registration;
+- Account and Wallet registration;
 - Account balance query;
 - Deposit of Amount into the Wallet;
 - Withdrawal of Amount from Wallet;
-- Transfer of Values between Wallets;
+- Transfer of Amount between Wallets;
 - Querying balance history by date;
 - Custom exception messages.
 
@@ -46,7 +46,9 @@ This project is a sample of a service for orchestrating operations in a financia
 
 To run the project, you need to use Intellij, so that it identifies the dependencies required for execution in the *Maven .m2 repository*. Once the project is imported, a *.classpath* file
 will be created that will inform which is the main class for execution. The project must run locally and add the environment variable *SPRING_PROFILES_ACTIVE=local*. This microservice is 
-already configured to run locally with *port 8090* in the *application.yaml* file. Calls to operations can be tested by postman - https://www.postman.com/downloads/
+already configured to run locally with *port 8080* in the *application.yaml* file.
+In the jsonExample folder, which is located at the root of the project, there is a postmam collection with operations and a txt with an example of what the operations request should be like.
+Calls to operations can be tested by postman - https://www.postman.com/downloads/
 
 ## Contact
 - LinkedIn: https://www.linkedin.com/in/marcio-pazin-ab178523/
