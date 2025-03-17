@@ -4,6 +4,7 @@ import com.rpbank.rpcarteira.domain.dto.*;
 import com.rpbank.rpcarteira.domain.enums.ErrorCodeEnum;
 import com.rpbank.rpcarteira.exception.WalletException;
 import com.rpbank.rpcarteira.service.AccountService;
+import com.rpbank.rpcarteira.service.serviceImpl.AccountServiceImpl;
 import com.rpbank.rpcarteira.service.WalletService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
